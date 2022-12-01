@@ -6,13 +6,12 @@ class Snake:
     def __init__(self):
         start_x = 20
         self.snake_bodies = []
-        for _ in range(3):
+        for _ in range(20):
             squares = Turtle(shape='square')
             squares.penup()
             squares.color('white')
             squares.goto(start_x, 0)
             start_x -= 20
-            # self.pos = squares.pos()
             self.snake_bodies.append(squares)
         self.head = self.snake_bodies[0]
         self.move_made = False
@@ -30,8 +29,8 @@ class Snake:
         self.head.forward(20)
 
     def collision(self):
-        for body in self.snake_bodies:
-            if self.head != body and self.head.distance(body) < 1:
+        for body in self.snake_bodies[1:]:
+            if self.head.distance(body) < 1:
                 return True
 
     def up(self):
@@ -53,3 +52,7 @@ class Snake:
         if (self.head.heading() != 0 and self.head.heading() != 180) and not self.move_made:
             self.head.setheading(0)
             self.move_made = True
+
+    def clear(self):
+        for obj in self.snake_bodies:
+            obj.hideturtle()

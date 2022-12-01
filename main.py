@@ -41,11 +41,16 @@ while game_on:
             or snake.head.ycor() > WALL_COLLISION or snake.head.ycor() < -WALL_COLLISION:
 
         game_on = False
+        snake.clear()
+        food.clear()
         scoreboard.game_over()
 
     # detect snake collision
     if snake.collision():
+        snake.clear()
+        food.clear()
         game_on = False
         scoreboard.game_over()
 
+screen.update()
 screen.exitonclick()

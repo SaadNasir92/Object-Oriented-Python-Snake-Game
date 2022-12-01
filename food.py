@@ -15,10 +15,11 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
+        self.rand_color()
         random_x = random.randint(-270, 265)
         random_y = random.randint(-270, 265)
-        self.rand_color()
-        self.goto(random_x, random_y)
+        new_pos = (random_x, random_y)
+        self.goto(new_pos)
 
     def rand_color(self):
         r = random.randint(1, 255)
@@ -26,3 +27,6 @@ class Food(Turtle):
         b = random.randint(1, 255)
         color = (r, g, b)
         self.color(color)
+
+    def clear(self):
+        self.hideturtle()
