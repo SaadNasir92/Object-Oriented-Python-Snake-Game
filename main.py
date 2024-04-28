@@ -1,8 +1,9 @@
-from data import Snake
+from classes.snake import Snake
+from classes.food import Food
+from classes.scoreboard import Scoreboard
 from turtle import Screen
 import time
-from food import Food
-from scoreboard import Scoreboard
+
 
 WALL_COLLISION = 290
 screen = Screen()
